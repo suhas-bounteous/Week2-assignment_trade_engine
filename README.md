@@ -1,6 +1,6 @@
-# 📈 High-Throughput Transaction Processing Engine
+# High-Throughput Transaction Processing Engine
 
-## 🧩 Project Overview
+## Project Overview
 
 This project implements a **lightweight, high-throughput transaction processing engine** for a trading desk system.
 
@@ -18,17 +18,17 @@ The system simulates the core behavior of a simplified trading backend system.
 
 ---
 
-# 🎯 Business Requirements
+# Business Requirements
 
-### ✔ One account → Multiple trades
+### One account → Multiple trades
 
 Each account can execute multiple BUY and SELL transactions.
 
-### ✔ One account → Multiple positions
+### One account → Multiple positions
 
 An account may hold multiple instruments (e.g., AAPL, MSFT, TSLA).
 
-### ✔ Trades must not allow negative quantity
+### Trades must not allow negative quantity
 
 A SELL trade cannot exceed the currently held quantity.
 
@@ -40,7 +40,7 @@ Trade failed: <tradeId>
 
 ---
 
-# 🏗 System Architecture
+# System Architecture
 
 ```
                 +------------------+
@@ -78,7 +78,7 @@ Trade failed: <tradeId>
 
 ---
 
-# ⚙️ Technology Stack
+# Technology Stack
 
 | Component       | Technology                  |
 | --------------- | --------------------------- |
@@ -91,7 +91,7 @@ Trade failed: <tradeId>
 
 ---
 
-# 🗄 Database Details (H2)
+# Database Details (H2)
 
 This project uses **H2 Database (v2.2.224)** — an embedded, lightweight, relational database written in Java.
 
@@ -162,7 +162,7 @@ Trades are inserted using `PreparedStatement`.
 
 ---
 
-# 🧠 In-Memory Portfolio Design
+# In-Memory Portfolio Design
 
 Portfolio state is maintained using:
 
@@ -187,19 +187,19 @@ Example:
 
 ---
 
-# 🔄 Trade Processing Flow
+# Trade Processing Flow
 
-### 1️⃣ Load Trades
+### 1️. Load Trades
 
 * CSV file parsed
 * Each row mapped to a Trade object
 
-### 2️⃣ Concurrent Processing
+### 2️. Concurrent Processing
 
 * ExecutorService thread pool
 * Multiple trades processed simultaneously
 
-### 3️⃣ Validation
+### 3️. Validation
 
 * If BUY → add quantity
 * If SELL → check current holding
@@ -207,11 +207,11 @@ Example:
   * If insufficient → reject
   * If valid → deduct quantity
 
-### 4️⃣ Persistence
+### 4️.Persistence
 
 * Valid trades inserted into H2 DB
 
-### 5️⃣ Reporting
+### 5️.Reporting
 
 * Account exposure
 * Total traded volume
@@ -220,7 +220,7 @@ Example:
 
 ---
 
-# 📊 Sample Console Output
+# Sample Console Output
 
 ```
 Trade failed: 32
@@ -236,7 +236,7 @@ Trade failed: 40
 
 ---
 
-# 🔐 Thread Safety & Data Integrity
+# Thread Safety & Data Integrity
 
 To ensure correctness during concurrent processing:
 
@@ -252,7 +252,7 @@ Two SELL trades reducing quantity below zero.
 
 ---
 
-# 📈 Summary Reporting (Java Streams)
+# Summary Reporting (Java Streams)
 
 Exposure is calculated as:
 
@@ -269,21 +269,21 @@ stream()
 
 ---
 
-# 🚀 How To Run
+# How To Run
 
-### 1️⃣ Clone repository
+### 1️. Clone repository
 
 ```
 git clone <repo-url>
 ```
 
-### 2️⃣ Build
+### 2️. Build
 
 ```
 mvn clean install
 ```
 
-### 3️⃣ Run
+### 3️. Run
 
 ```
 mvn exec:java
@@ -297,7 +297,7 @@ TradingEngineApplication.main()
 
 ---
 
-# 🧪 Future Enhancements
+# Future Enhancements
 
 * Switch to file-based H2 database
 * Add connection pooling
@@ -309,7 +309,7 @@ TradingEngineApplication.main()
 
 ---
 
-# 🎓 What This Project Demonstrates
+# What This Project Demonstrates
 
 * Concurrency handling
 * Thread safety
@@ -321,7 +321,7 @@ TradingEngineApplication.main()
 
 ---
 
-# 🏁 Conclusion
+# Conclusion
 
 This project simulates the core of a simplified trading engine capable of:
 
